@@ -51,9 +51,8 @@ function insert(alarms, newa) {
 }
 
 function toggle(index) {
-    console.log(alarms[index].active);
     alarms[index].active = !alarms[index].active;
-    console.log(alarms[index].active);
+    localStorage.setItem("alarms", JSON.stringify(alarms));
     show();
 }
 
