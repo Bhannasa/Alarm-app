@@ -92,7 +92,9 @@ function sync() {
             console.log("Playing");
             let mysound = new Audio("http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/lose.ogg");
             mysound.play();
-            alarms.splice(index, 1);
+            alarms[index].active = false;
+            localStorage.setItem("alarms", JSON.stringify(alarms));
+            show();
 
             localStorage.setItem("alarms", JSON.stringify(alarms));
         }
