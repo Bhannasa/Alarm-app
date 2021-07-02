@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Tourney:wght@600&display=swap');
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(66, 185, 112);
+    font-family: 'Tourney', cursive;
+}
+
+.setter {
+    margin-top: 10%;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    width: 400px;
+    background-color: rgb(190, 255, 130);
+    height: 290px;
+}
+
+.select-time {
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: rgb(39, 245, 32);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inc,
+.dec {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+}
+
+.inc {
+    border-bottom: 30px solid rgb(95, 255, 67);
+    border-top: 0px solid transparent;
+}
+
+.dec {
+    border-bottom: 0px solid transparent;
+    border-top: 30px solid rgb(95, 255, 67);
+}
+
+.inp-time {
+    width: 93px;
+    height: 93px;
+    font-size: 72px;
+    font-family: 'Tourney', cursive;
+    text-align: center;
+}
+
+.txt {
+    font-size: 55px;
+    display: flex;
+    align-items: center;
+    color: rgb(59, 59, 59);
+}
+
+#add {
+    display: block;
+    float: right;
+    height: 70px;
+    width: 170px;
+    font-size: 30px;
+    margin: 15px;
+    background-color: rgb(0, 255, 0);
+    border-radius: 10px;
+    /* font-family: 'Tourney', cursive; */
+    font-family: roboto;
+}
+
+.alarms-div {
+    width: 400px;
+    margin-top: 10%;
+    background-color: rgb(89, 255, 47);
+    border-radius: 20px;
+}
+
+.alarms {
+    font-size: 52px;
+    display: flex;
+    width: 350px;
+    border: 1px solid black;
+    margin: 20px auto;
+    justify-content: space-around;
+    border-radius: 10px;
+    background-color: rgb(158, 253, 135);
+}
+
+.time {
+    justify-self: end;
+}
+
+.close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 200px;
+    width: 20px;
+    height: 20px;
+    font-size: 22px;
+    transform: translate(0, -50%);
+    align-self: flex-start;
+    justify-self: flex-end;
+    position: relative;
+    left: 25px;
+    background-color: rgb(255, 68, 68);
+    cursor: pointer;
+}
+
+.toggle {
+    width: 50px;
+    height: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    transform: translate(0, 25px);
+}
+
+.toggle-switch {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 30px;
+    transform: translate(0, -25%);
+    background-color: black;
+    float: right;
+}
+
+.toggle-enabled-true {
+    background-color: rgb(64, 197, 64);
+    position: relative;
+    left: 2px;
+    float: right;
+}
+
+.toggle-enabled-false {
+    background-color: rgb(199, 78, 78);
+    position: relative;
+    right: 2px;
+    float: left;
+}
+
+@media (min-width:1300px) {
+    .alarms-div,
+    .setter {
+        transform: scale(1.5);
+    }
+}
