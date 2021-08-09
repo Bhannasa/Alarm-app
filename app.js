@@ -18,7 +18,7 @@ else alarms = JSON.parse(alarms);
 
 show();
 sync();
-setInterval(sync, 60000);
+setInterval(sync, 1000);
 
 function alter(what, value) {
     value = parseInt(value);
