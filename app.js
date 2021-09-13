@@ -15,10 +15,7 @@ if (hh.value >= 12) {
 let alarms = localStorage.getItem("alarms");
 if (alarms == null) alarms = new Array();
 else alarms = JSON.parse(alarms);
-
-show();
-sync();
-setInterval(sync, 1000);
+let soundPlaying=false;
 
 function alter(what, value) {
     value = parseInt(value);
@@ -51,8 +48,9 @@ function insert(alarms, newa) {
 }
 
 function toggle(index) {
+    console.log(alarms[index].active);
     alarms[index].active = !alarms[index].active;
-    localStorage.setItem("alarms", JSON.stringify(alarms));
+    console.log(alarms[index].active);
     show();
 }
 
@@ -85,17 +83,18 @@ function show() {
 }
 
 function sync() {
+    
     let time = new Date();
-    alarms.forEach((alarm, index) => {
-        if (time.getHours() == alarm.h && time.getMinutes() == alarm.m && alarm.active) {
-            console.log("Playing");
-            let mysound = new Audio("http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/lose.ogg");
-            mysound.play();
-            alarms[index].active = false;
-            localStorage.setItem("alarms", JSON.stringify(alarms));
-            show();
+    let h=time.getHours();
+    let m=time.getMinutes();
+    let s=time.getSeconds();
+    let meri=h>=12?" PM":" AM";
+    h%=12;
+    document.getElementById('active-time').innerText=h+" : "+m+" : "+s+meri;
 
-            localStorage.setItem("alarms", JSON.stringify(alarms));
+    alarms.forEach((alarm, index) => {
+        if (!soundPlaying&&time.getHours() == alarm.h && time.getMinutes() == alarm.m && alarm.active) {
+            playSound(index);
         }
     });
     show();
@@ -120,3 +119,40 @@ document.getElementById("add").addEventListener("click", e => {
     console.log(newAlarm);
     console.log("Alarms succesfully added");
 })
+
+let playSound=(i)=>{
+    console.log("Playing");
+    document.querySelector('.active-alarm-container').style.display="flex";
+    // let mysound = new Audio("http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/lose.ogg");
+    let mysound = new Audio("sounds/lose.ogg");
+    mysound.play();
+    soundPlaying=true;
+    document.querySelector('.button-stop').addEventListener('click',()=>{
+        alarms[i].active=false;
+        localStorage.setItem("alarms", JSON.stringify(alarms));
+        mysound.pause();
+        document.querySelector('.active-alarm-container').style.display="none";
+        soundPlaying=false;
+    })
+    document.querySelector('.button-snooze').addEventListener('click',()=>{
+        let {m,h}=alarms[i];
+        console.log(h,m)
+        m+=5;
+        h+=(m>=60);
+        m=m%60;
+        h=h%24;
+        console.log(h,m)
+        alarms[i].m=m;
+        alarms[i].h=h;
+        localStorage.setItem("alarms", JSON.stringify(alarms));
+        mysound.pause();
+        document.querySelector('.active-alarm-container').style.display="none";
+        soundPlaying=false;
+    })
+
+    localStorage.setItem("alarms", JSON.stringify(alarms));
+}
+
+show();
+sync();
+setInterval(sync, 500);
