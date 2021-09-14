@@ -17,5 +17,5 @@
 >
 >---
 >#### Mobile version: 
-> <img src="images/ringing-alarm-mobile.png" style="width:48%; margin:1%;"><img src="images/set-alarm-mobile.png" style="width:48%; margin:1%;">
+> <img src="images/ringing-alarm-mobile.png" style="width:48%; border:5px solid white;"><img src="images/set-alarm-mobile.png" style="width:48%; border:5px solid white;">
 > 
