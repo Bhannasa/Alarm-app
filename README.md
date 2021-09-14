@@ -2,6 +2,8 @@
 ---
 > ### Features: 
 >- Fully responsive app
+>- Attractive Design
+>- Alarms are safely stored in your browser's localStorage
 >- Sync time 0.5 sec which will ring instantly on time
 >- While setting alarm
 >   - Single click - 1 step

@@ -7,7 +7,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    /* background: rgb(66, 185, 112); */
     background: linear-gradient(135deg,rgb(222, 236, 19) 0%,rgb(8, 218, 53) 50%,rgb(222, 236, 19) 100%);
     font-family: 'Tourney', cursive;
     min-height: 100vh;
@@ -17,7 +16,6 @@ body {
 
 .setter {
     margin-top: 10%;
-    /* border: 1px solid black; */
     border-radius: 20px;
     width: 400px;
     background-color: rgb(190, 255, 130);
@@ -226,12 +224,6 @@ input::-webkit-inner-spin-button {
 .button-snooze{
     background-color: rgb(68, 205, 50);
 }
-/* .buttons{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: auto;
-    align-items: stretch;
-} */
 
 @media (min-width:1400px) {
     .setter,.alarms-div {
